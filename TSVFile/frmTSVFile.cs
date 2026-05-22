@@ -73,7 +73,28 @@ namespace TSVFile
                 _WordList.LoadFromStringArray(lines);
                 // 將 WordCollection 物件中的資料載入到 ListView 中
                 UpdateListView();
+                this.tsslMessage.Text = $"{_WordList.Count} 單字已成功載入";
             }
+        }
+
+        private void tsmiExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmTSVFile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("確定要離開嗎?", "離開", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.No)
+            {
+                e.Cancel = true; // 取消關閉
+            }
+        }
+
+        private void frmTSVFile_Load(object sender, EventArgs e)
+        {
+            tsslMessage.Text = "";
+
         }
     }
 }

@@ -105,6 +105,7 @@
             // 
             // ssrWord
             // 
+            this.ssrWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
             this.ssrWord.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.ssrWord.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslMessage});
@@ -116,12 +117,14 @@
             // 
             // tsslMessage
             // 
+            this.tsslMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
             this.tsslMessage.Name = "tsslMessage";
             this.tsslMessage.Size = new System.Drawing.Size(114, 30);
             this.tsslMessage.Text = "Message";
             // 
             // lvwWord
             // 
+            this.lvwWord.BackColor = System.Drawing.Color.White;
             this.lvwWord.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chWord,
             this.Phonogram,
@@ -165,6 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1079, 573);
             this.Controls.Add(this.lvwWord);
             this.Controls.Add(this.ssrWord);

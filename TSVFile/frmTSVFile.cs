@@ -27,7 +27,7 @@ namespace TSVFile
         public frmTSVFile()
         {
             InitializeComponent();
-            this.Size = new Size(700, 500);
+            this.Size = new Size(618, 450);
         }
         /// <summary>
         /// 更新 ListView 的內容
@@ -35,8 +35,9 @@ namespace TSVFile
         private void UpdateListView()
         {
             lvwWord.BeginUpdate(); //暫停重繪
-                                   // 清除 ListView 的所有項目
-            lvwWord.Items.Clear();
+            lvwWord.Items.Clear(); // 清除 ListView 的所有項目
+
+            bool alt = false;
             // 將 WordCollection 物件中的資料載入到 ListView 中
             foreach (WordItem item in _WordList)
             {
@@ -45,8 +46,14 @@ namespace TSVFile
                 lvi.SubItems.Add(item.Phonogram);
                 lvi.SubItems.Add(item.SoundPath);
                 lvi.SubItems.Add(item.Explain);
-                // 將 ListViewItem 物件加入到 ListView 中
-                lvwWord.Items.Add(lvi);
+                
+                // 交替列：白 / 極淡藍灰
+                lvi.BackColor = alt
+                    ? Color.FromArgb(247, 249, 252)
+                    : Color.White;
+
+                lvwWord.Items.Add(lvi); // 將 ListViewItem 物件加入到 ListView 中
+                alt = !alt;
             }
             lvwWord.EndUpdate(); //重繪;
         }
@@ -95,6 +102,28 @@ namespace TSVFile
         {
             tsslMessage.Text = "";
 
+            // ── ListView 外觀 ──────────────────────────────────────────
+            lvwWord.BackColor = Color.White;
+            lvwWord.BorderStyle = BorderStyle.FixedSingle;
+            lvwWord.FullRowSelect = true;
+            lvwWord.GridLines = false;
+
+            // 選取時用深藍文字，避免深底色吃掉文字
+            lvwWord.ForeColor = Color.FromArgb(42, 46, 58);
+            lvwWord.HideSelection = false;
+
+            // ── 欄位標頭：換用 OwnerDraw 畫藍色標頭 ───────────────────
+            lvwWord.OwnerDraw = true;
+            lvwWord.DrawColumnHeader += (s, ev) =>
+            {
+                ev.Graphics.FillRectangle(
+                    new SolidBrush(Color.FromArgb(58, 95, 160)), ev.Bounds);
+                    TextRenderer.DrawText(ev.Graphics, ev.Header.Text, new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold), ev.Bounds, Color.White,
+                    TextFormatFlags.VerticalCenter | TextFormatFlags.Left
+                    | TextFormatFlags.LeftAndRightPadding);
+            };
+            lvwWord.DrawItem += (s, ev) => ev.DrawDefault = true;
+            lvwWord.DrawSubItem += (s, ev) => ev.DrawDefault = true;
         }
     }
 }

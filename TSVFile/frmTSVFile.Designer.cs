@@ -55,7 +55,7 @@
             this.tsmiHelp});
             this.mnsWord.Location = new System.Drawing.Point(0, 0);
             this.mnsWord.Name = "mnsWord";
-            this.mnsWord.Size = new System.Drawing.Size(1079, 42);
+            this.mnsWord.Size = new System.Drawing.Size(1079, 38);
             this.mnsWord.TabIndex = 0;
             this.mnsWord.Text = "menuStrip1";
             // 
@@ -129,9 +129,9 @@
             this.lvwWord.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lvwWord.FullRowSelect = true;
             this.lvwWord.HideSelection = false;
-            this.lvwWord.Location = new System.Drawing.Point(0, 42);
+            this.lvwWord.Location = new System.Drawing.Point(0, 38);
             this.lvwWord.Name = "lvwWord";
-            this.lvwWord.Size = new System.Drawing.Size(1079, 491);
+            this.lvwWord.Size = new System.Drawing.Size(1079, 495);
             this.lvwWord.TabIndex = 2;
             this.lvwWord.UseCompatibleStateImageBehavior = false;
             this.lvwWord.View = System.Windows.Forms.View.Details;
